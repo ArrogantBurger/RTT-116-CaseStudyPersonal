@@ -1,0 +1,111 @@
+/* ===== General ===== */
+
+body {
+    background-color: #121220;
+    color: white;
+}
+
+div {
+    transition: all .25s linear
+}
+
+#app-main {
+    display:flex;
+    min-height: 800px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+/* ===== Navbar (Header) and Footer ===== */
+.navbar {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white;
+    border-radius:4px;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: #036f48;
+}
+
+.navbar-nav {
+    --bs-nav-link-color: white;
+    --bs-nav-link-hover-color: white;
+}
+
+#footer {
+    background-color: #04AA6D;
+    color: white;
+
+    /*
+    position: absolute;
+    bottom: 0;
+     */
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+}
+
+/* ===== Containers, Lists ===== */
+
+.container-content {
+
+}
+
+.container-list {
+    background-color: #313131;
+    --tw-shadow-color: rgba(0,0,0,.5);
+    box-shadow: 0 10px 15px -3px var(--tw-shadow-color),
+                0 4px 6px -4px var(--tw-shadow-color),
+                inset 0 1px 0 0 hsla(0,0%,100%,.1);
+    border-radius: 4px;
+
+
+}
+
+.container-entry {
+    background-color: #363c5a;
+    padding: 16px 12px;
+}
+
+.container-entry:nth-of-type(odd) {
+    background-color: #292e45;
+}
+
+.list-title {
+    padding: 8px 12px;
+}
+
+#index-main-list {
+
+}
+
+/* ===== Game Information ===== */
+
+.game-title {
+    font-weight: bold;
+}
+
+.game-details {
+    font-size: small;
+}
+
+/* ===== Widgets ===== */
+
+#twitch-embed {
+    aspect-ratio: 16/9;
+    padding-bottom: 12px;
+}
+
+#twitch-embed-title {
+    border-radius: 4px 4px 0 0;
+}

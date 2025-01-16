@@ -1,14 +1,14 @@
-
-    <section class="bg-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    Some content here that you want
-                </div>
+</div>
+<section class="bg-footer" id="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                Copyright @ SoftDiscman Solutions, 2025
             </div>
         </div>
+    </div>
 
-    </section>
+</section>
 
 
 </body>
