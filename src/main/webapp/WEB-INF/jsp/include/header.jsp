@@ -34,18 +34,18 @@
                     <a class="nav-link" href="/games">Games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Challenges</a>
+                    <a class="nav-link" href="/forums">Forums</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="/faq">Help</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/index">Login</a>
+                    <a class="nav-link" aria-current="page" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/games">Sign Up</a>
+                    <a class="nav-link" href="/login/signup">Sign Up</a>
                 </li>
             </ul>
             <form class="d-flex mb-0" role="search" style="margin-left: 24px">
