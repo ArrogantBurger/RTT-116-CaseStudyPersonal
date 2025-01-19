@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class GamesController {
     @GetMapping("/games")
     public ModelAndView index() {
-        ModelAndView response = new ModelAndView("games/games");
-        response.setViewName("games/games");
+        ModelAndView response = new ModelAndView("games/gamesPage");
+        response.setViewName("games/gamesPage");
         return response;
     }
 }
