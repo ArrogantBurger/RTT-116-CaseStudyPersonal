@@ -9,6 +9,7 @@
 
 <jsp:include page="include/header.jsp"/>
 
+<div class="container page" id="app-main">
 
     <div class="container container-main container-content col-8" id="index-main-list">
 
@@ -46,7 +47,7 @@
                         Image
                     </div>
 
-                     <!-- Details -->
+                    <!-- Details -->
                     <div class="col-10">
                         <div class="row game-title">
                             <div class="col-12">Game name</div>
@@ -190,6 +191,6 @@
             </div>
         </div>
     </div>
-
+</div>
 
 <jsp:include page="include/footer.jsp"/>

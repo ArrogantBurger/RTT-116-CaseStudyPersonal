@@ -1,27 +1,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <jsp:include page="../include/header.jsp"/>
 
 
-
-<div class="container page authentication-page" id="login-page">
+<div class="container page authentication-page" id="signup-page">
 
     <div class="authentication-box">
         <div class="row" style="text-align: center; margin-bottom: 20px;">
-            <h3>Login</h3>
+            <h3>Sign Up</h3>
         </div>
-        <c:if test="${param.error eq ''}">
+        <c:if test="${bindingResult.hasFieldErrors('username')}">
             <div class="row justify-content-center">
                 <div class="alert alert-danger" role="alert">
-                    Invalid username or password
+                    Username already exists.
                 </div>
             </div>
         </c:if>
-        <form class="authentication-form" action="/login/loginSubmit" method="post" name="loginForm">
+        <form class="authentication-form" action="/signupSubmit" method="post" name="signupForm">
             <div>
                 <input type="text" class="form-control" placeholder="Username" id="username" name="username" value=""/>
             </div>
+
             <div>
                 <input type="password" class="form-control" placeholder="Password" id="password" name="password" value=""/>
             </div>
@@ -29,7 +28,6 @@
                 <button type="submit" class="btn">Submit</button>
             </div>
         </form>
-
     </div>
 
 </div>

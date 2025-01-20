@@ -1,4 +1,4 @@
-</div>
+
 <section class="bg-footer" id="footer">
     <div class="container-fluid">
         <div class="row">

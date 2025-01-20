@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class UsernameUniqueImpl implements ConstraintValidator<UsernameUnique, String> {
 
-    public static final Logger LOG = LoggerFactory.getLogger(EmailUniqueImpl.class);
+    public static final Logger LOG = LoggerFactory.getLogger(UsernameUniqueImpl.class);
 
     @Autowired
     private UserDAO userService;

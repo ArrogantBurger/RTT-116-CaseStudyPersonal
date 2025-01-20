@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -40,14 +42,27 @@
                     <a class="nav-link" href="/faq">Help</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/signup">Sign Up</a>
-                </li>
-            </ul>
+            <sec:authorize access="!isAuthenticated()">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Sign Up</a>
+                    </li>
+                </ul>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/profile"><sec:authentication property="principal.username"/></a>
+                    </li>
+                </ul>
+            </sec:authorize>
+
             <form class="d-flex mb-0" role="search" style="margin-left: 24px">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-primary" type="submit">Search</button>
@@ -57,5 +72,5 @@
 </nav>
 
 <!-- Start of main container, end is in the footer -->
-<div class="container" id="app-main">
+
 

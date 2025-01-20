@@ -9,13 +9,6 @@ div {
     transition: all .25s linear
 }
 
-#app-main {
-    display:flex;
-    min-height: 800px;
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
-
 /* ===== Navbar (Header) and Footer ===== */
 .navbar {
     background-color: #04AA6D;
@@ -62,7 +55,7 @@ div {
 }
 
 .container-list {
-    background-color: #313131;
+    background-color: #434343;
     --tw-shadow-color: rgba(0,0,0,.5);
     box-shadow: 0 10px 15px -3px var(--tw-shadow-color),
                 0 4px 6px -4px var(--tw-shadow-color),
@@ -108,4 +101,40 @@ div {
 
 #twitch-embed-title {
     border-radius: 4px 4px 0 0;
+}
+
+/* ===== Login + Submit Pages ===== */
+.page {
+    display:flex;
+    align-items: center;
+    min-height: 800px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.authentication-page {
+    justify-content: center;
+}
+
+.authentication-page input {
+    margin-bottom: 24px;
+}
+
+.authentication-page .btn {
+    background-color: #04AA6D;
+    color: white;
+    width: 100%;
+}
+
+.authentication-box {
+    background-color: #434343;
+    --tw-shadow-color: rgba(0,0,0,.5);
+    box-shadow: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color),
+    inset 0 1px 0 0 hsla(0,0%,100%,.1);
+    border-radius: 4px;
+    padding: 24px;
+
+    width: 40%;
+    min-width: 300px;
 }

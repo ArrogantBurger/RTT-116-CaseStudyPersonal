@@ -1,18 +1,21 @@
-
 package com.casestudy.webapp.validation;
+
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = UsernameUniqueImpl.class)
-@Target({ElementType.METHOD, ElementType.FIELD})
+@Constraint(validatedBy = TwoFieldsAreEqualImpl.class)
+@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UsernameUnique {
+public @interface TwoFieldsAreEqual {
 
-    String message() default "{UserUsernameUnique}";
+    String fieldOneName();
+
+    String fieldTwoName();
+
+    String message() default "{TwoFieldsAreEqual}";
 
     Class<?>[] groups() default {};
 
