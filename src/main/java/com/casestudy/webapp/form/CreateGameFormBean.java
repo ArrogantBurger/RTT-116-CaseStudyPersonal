@@ -15,11 +15,11 @@ public class CreateGameFormBean {
 
     private Integer id;
 
-    @Pattern(regexp = "[A-Za-z0-9\\s]+", message = "Game name must contain only letters, numbers, and spaces.")
     @Length(max = 100, message = "Game name must be less than 100 characters.")
     @NotEmpty(message = "Game name is required.")
     private String gameName;
 
+    @Pattern(regexp = "[A-Za-z0-9]+", message = "Game name must contain only letters, numbers, and spaces.")
     @Length(max = 50, message = "Abbreviation must be less than 50 characters.")
     @NotEmpty(message = "Abbreviation is required.")
     private String abbr;

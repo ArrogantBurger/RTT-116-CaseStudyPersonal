@@ -9,6 +9,10 @@ div {
     transition: all .25s linear
 }
 
+.col-2{
+    width: 16%
+}
+
 /* ===== Navbar (Header) and Footer ===== */
 .navbar {
     background-color: #04AA6D;
@@ -67,14 +71,28 @@ div {
 
 .container-entry {
     background-color: #363c5a;
-    padding: 16px 12px;
+    padding: 8px 12px;
 }
 
 .container-entry:nth-of-type(odd) {
     background-color: #292e45;
 }
 
+.container-content img{
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    --tw-shadow-color: rgba(0,0,0,.5);
+    box-shadow: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color),
+    inset 0 1px 0 0 hsla(0,0%,100%,.1);
+    border-radius: 4px;
+}
+
 .list-title {
+    font-size: large;
+    font-weight: bold;
     padding: 8px 12px;
 }
 
@@ -105,14 +123,15 @@ div {
 
 /* ===== Login + Submit Pages ===== */
 .page {
+    background-color: #121220;
     display:flex;
-    align-items: center;
     min-height: 800px;
     margin-top: 24px;
     margin-bottom: 24px;
 }
 
 .authentication-page {
+    align-items: center;
     justify-content: center;
 }
 
@@ -137,4 +156,49 @@ div {
 
     width: 40%;
     min-width: 300px;
+}
+
+/* ===== Games Page ===== */
+
+.game-gallery {
+    background-color: #434343;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+.game-gallery-contents {
+    background-color: #292e45;
+    margin: 0;
+    padding: 16px;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+.game-card {
+    background-color: #363c5a;
+    margin: 0;
+    padding: 0;
+    color: white;
+    border-radius: 8px;
+
+    --tw-shadow-color: rgba(0,0,0,.5);
+    box-shadow: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color),
+    inset 0 1px 0 0 hsla(0,0%,100%,.1);
+}
+
+.game-card:hover {
+    transform:scale(1.05);
+    transition-duration: 0.1s;
+}
+
+.game-card img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.game-card-footer {
+    font-size: large;
+    margin: 12px;
 }

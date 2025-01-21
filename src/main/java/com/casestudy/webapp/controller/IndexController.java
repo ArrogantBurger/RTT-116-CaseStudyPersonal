@@ -38,4 +38,15 @@ public class IndexController {
 
         return response;
     }
+
+    @GetMapping("")
+    public ModelAndView indexTwo() {
+        ModelAndView response = new ModelAndView("index");
+        response.setViewName("index");
+
+        List<Game> latestGames = gameDao.findLatestGames();
+        response.addObject("latestGameListKey", latestGames);
+
+        return response;
+    }
 }

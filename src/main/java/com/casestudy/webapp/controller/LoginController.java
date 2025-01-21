@@ -101,7 +101,7 @@ public class LoginController {
             authenticatedUserService.changeLoggedInUsername(session,form.getUsername(),form.getPassword());
 
             // redirect
-            response.setViewName("redirect:/");
+            response.setViewName("redirect:/index");
         }
 
         return response;

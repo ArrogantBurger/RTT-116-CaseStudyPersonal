@@ -11,8 +11,12 @@ import java.util.List;
 public interface GameDAO extends JpaRepository<Game, Long>{
     Game findById(Integer id);
     Game findByGameNameIgnoreCase(String gameName);
-    Game findByAbbrIgnoreCase(String abbr);
+    List<Game> findByAbbrIgnoreCase(String abbr);
 
     @Query("SELECT g FROM Game g ORDER BY g.id DESC LIMIT 20")
     List<Game> findLatestGames();
+
+    @Query("SELECT g FROM Game g ORDER BY g.gameName ASC LIMIT 20")
+    List<Game> findAlphabetizedGames();
+
 }

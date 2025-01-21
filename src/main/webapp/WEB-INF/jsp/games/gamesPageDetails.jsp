@@ -9,4 +9,10 @@
 
 <jsp:include page="../include/header.jsp"/>
 <h1>Game Details Page!</h1>
+
+
+<c:forEach var="game" items="${titleGameKey}">
+    <div>URL says this is a page for: ${game.gameName}</div>
+</c:forEach>
+
 <jsp:include page="../include/footer.jsp"/>

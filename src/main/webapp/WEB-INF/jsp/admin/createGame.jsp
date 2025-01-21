@@ -61,6 +61,23 @@
                 </c:if>
 
                 <div class="mt-3 row justify-content-center">
+                    <label for="releaseYear" class="col-sm-2 col-form-label">Release Year</label>
+                    <div class="col-sm-10 col-lg-6">
+                        <input type="number" min="1950" max="2025" class="form-control" id="releaseYear" name="releaseYear" value="${form.releaseYear}">
+                    </div>
+                </div>
+                <c:if test="${bindingResult.hasFieldErrors('releaseYear')}">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10 col-lg-6">
+                            <c:forEach var="error" items="${bindingResult.getFieldErrors('releaseYear')}">
+                                <dd class="mb-0 form_input_error">${error.getDefaultMessage()}</dd>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </c:if>
+
+                <div class="mt-3 row justify-content-center">
                     <label for="upload" class="col-sm-2 col-form-label">Upload Image</label>
                     <div class="col-sm-10 col-lg-6">
                         <input type="file" class="form-control" id="upload" name="upload">

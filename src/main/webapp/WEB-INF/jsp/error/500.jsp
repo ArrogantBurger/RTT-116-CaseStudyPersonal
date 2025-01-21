@@ -16,7 +16,7 @@
   </div>
 </section>
 
-<%--<sec:authorize access="hasAnyAuthority('ADMIN')">--%>
+<sec:authorize access="hasAnyAuthority('ADMIN')">
 <section class="bg-light2 pt-5 pb-5">
   <div class="container">
     <div class="row">
@@ -24,6 +24,6 @@
     </div>
   </div>
 </section>
-<%--</sec:authorize>--%>
+</sec:authorize>
 
 <jsp:include page="../include/footer.jsp"/>
