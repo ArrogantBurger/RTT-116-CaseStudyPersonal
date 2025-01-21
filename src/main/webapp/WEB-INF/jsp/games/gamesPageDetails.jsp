@@ -8,5 +8,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="../include/header.jsp"/>
-<h1>Main Games Page!</h1>
+<h1>Game Details Page!</h1>
 <jsp:include page="../include/footer.jsp"/>

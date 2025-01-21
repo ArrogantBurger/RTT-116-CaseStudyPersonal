@@ -36,9 +36,6 @@
                     <a class="nav-link" href="/games">Games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/forums">Forums</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/faq">Help</a>
                 </li>
             </ul>
@@ -52,14 +49,21 @@
                     </li>
                 </ul>
             </sec:authorize>
+
             <sec:authorize access="isAuthenticated()">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/logout">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/profile"><sec:authentication property="principal.username"/></a>
+                        <a class="nav-link" aria-current="page" href="/profile/dashboard"><sec:authentication property="principal.username"/></a>
                     </li>
+                    <sec:authorize access="hasAuthority('ADMIN')">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/admin/dashboard">Dashboard</a>
+                        </li>
+                    </sec:authorize>
                 </ul>
             </sec:authorize>
 
