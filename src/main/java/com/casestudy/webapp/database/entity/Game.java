@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.query.Page;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -35,4 +37,8 @@ public class Game {
 
     @Column(name = "release_year")
     private Integer releaseYear;
+
+    @OneToMany(mappedBy = "game", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Speedrun> speedruns;
 }

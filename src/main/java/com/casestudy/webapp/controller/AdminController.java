@@ -54,6 +54,10 @@ public class AdminController {
             System.out.println("Error found in game create!");
         } else {
             System.out.println("Game create valid!");
+
+
+
+
             response.setViewName("redirect:/admin/createGameSuccess");
         }
 

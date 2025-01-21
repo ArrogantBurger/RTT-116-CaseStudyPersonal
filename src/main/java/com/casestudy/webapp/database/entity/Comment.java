@@ -18,10 +18,20 @@ public class Comment {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "commenter_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "commenter_id")
+    @EqualsAndHashCode.Exclude
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "speedrun_id")
+    @EqualsAndHashCode.Exclude
+    private Speedrun speedrun;
+
+    @Column(name = "commenter_id", insertable = false, updatable = false)
     private Integer commenterId;
 
-    @Column(name = "speedrun_id")
+    @Column(name = "speedrun_id", insertable = false, updatable = false)
     private Integer speedrunId;
 
     @Column(name = "timestamp")

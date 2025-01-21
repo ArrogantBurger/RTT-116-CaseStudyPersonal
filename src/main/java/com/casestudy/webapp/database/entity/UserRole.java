@@ -1,6 +1,8 @@
 package com.casestudy.webapp.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,7 +19,12 @@ public class UserRole {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @EqualsAndHashCode.Exclude
+    private User user;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
     private Integer userId;
 
     @Column(name = "role_name")

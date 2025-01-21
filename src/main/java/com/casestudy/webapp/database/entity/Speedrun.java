@@ -1,5 +1,6 @@
 package com.casestudy.webapp.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.query.Page;
@@ -22,10 +23,20 @@ public class Speedrun {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @EqualsAndHashCode.Exclude
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "game_id")
+    @EqualsAndHashCode.Exclude
+    private Game game;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
     private Integer userId;
 
-    @Column(name = "game_id")
+    @Column(name = "game_id", insertable = false, updatable = false)
     private Integer gameId;
 
     @Column(name = "speedrun_time")
@@ -43,4 +54,7 @@ public class Speedrun {
     @Column(name = "approved")
     private Integer approved;
 
+    @OneToMany(mappedBy = "speedrun", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Comment> comments;
 }
