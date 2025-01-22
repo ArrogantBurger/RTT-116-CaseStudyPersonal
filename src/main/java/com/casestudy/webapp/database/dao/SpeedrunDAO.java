@@ -13,4 +13,7 @@ public interface SpeedrunDAO extends JpaRepository<Speedrun, Long>{
 
     @Query("SELECT s FROM Speedrun s WHERE s.gameId = :gameId ORDER BY s.speedrunTime DESC LIMIT 20")
     List<Speedrun> findSpeedrunsForGame(Integer gameId);
+
+    @Query("SELECT s FROM Speedrun s ORDER BY s.id DESC LIMIT 20")
+    List<Speedrun> findLatestSpeedruns();
 }

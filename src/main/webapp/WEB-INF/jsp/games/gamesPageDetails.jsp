@@ -27,7 +27,9 @@
 
             <div class="container-list speedrun-list" style="margin-bottom: 16px;">
                 <div class="list-title">
-                    Recent Speedruns
+                    <c:forEach var="game" items="${titleGameKey}">
+                        Speedruns for ${game.gameName}, Any% Category
+                    </c:forEach>
                 </div>
 
                 <!-- Speedrun Entry Template

@@ -36,6 +36,9 @@ public class IndexController {
         List<Game> latestGames = gameDao.findLatestGames();
         response.addObject("latestGameListKey", latestGames);
 
+        List<Speedrun> latestSpeedruns = speedrunDao.findLatestSpeedruns();
+        response.addObject("latestSpeedrunListKey", latestSpeedruns);
+
         return response;
     }
 

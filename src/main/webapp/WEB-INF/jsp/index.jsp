@@ -40,7 +40,7 @@
                 Recent Speedruns
             </div>
 
-            <!-- Speedrun Entry Template, 1 -->
+            <!-- Speedrun Entry Template
             <div class="container-entry">
                 <div class="row">
 
@@ -48,7 +48,6 @@
                         Image
                     </div>
 
-                    <!-- Details -->
                     <div class="col-10">
                         <div class="row game-title">
                             <div class="col-12">Game name</div>
@@ -65,61 +64,47 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <!-- Speedrun Entry Template, 2 -->
-            <div class="container-entry">
-                <div class="row">
+            <!-- Speedrun Entry Template, Populated -->
 
-                    <div class="col-2">
-                        Image
-                    </div>
+            <c:forEach var="speedrun" items="${latestSpeedrunListKey}">
 
-                    <!-- Details -->
-                    <div class="col-10">
-                        <div class="row game-title">
-                            <div class="col-12">Game name</div>
+                <c:set var="speedrunTimeConvert" value=
+                        "${Math.round(Math.floor(speedrun.speedrunTime / 3600))}h
+                            ${Math.round(Math.floor(speedrun.speedrunTime / 60 % 60))}m
+                            ${Math.round(Math.floor(speedrun.speedrunTime % 60))}s"/>
+
+                <div class="container-entry">
+                    <div class="row">
+
+                        <div class="col-2">
+                            <img src="${speedrun.game.imageUrl}" alt="Image">
                         </div>
-                        <div class="row game-details">
-                            <div class="col-6">Category</div>
-                            <div class="col-3">Placement</div>
-                            <div class="col-3">Username</div>
-                        </div>
-                        <div class="row game-details">
-                            <div class="col-6 mini-box">(empty)</div>
-                            <div class="col-3 mini-box">Time</div>
-                            <div class="col-3 mini-box">Date Submitted</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Speedrun Entry Template, 3 -->
-            <div class="container-entry">
-                <div class="row">
-
-                    <div class="col-2">
-                        Image
-                    </div>
-
-                    <!-- Details -->
-                    <div class="col-10">
-                        <div class="row game-title">
-                            <div class="col-12">Game name</div>
-                        </div>
-                        <div class="row game-details">
-                            <div class="col-6">Category</div>
-                            <div class="col-3">Placement</div>
-                            <div class="col-3">Username</div>
-                        </div>
-                        <div class="row game-details">
-                            <div class="col-6 mini-box">(empty)</div>
-                            <div class="col-3 mini-box">Time</div>
-                            <div class="col-3 mini-box">Date Submitted</div>
+                        <!-- Details -->
+                        <div class="col-10">
+                            <div class="row game-title">
+                                <div class="col-12">${speedrun.game.gameName}</div>
+                            </div>
+                            <div class="row game-details">
+                                <div class="col-6">Any%</div>
+                                <div class="col-3">
+                                    <a href="/games/page/${speedrun.game.abbr}/speedrun/${speedrun.id}">
+                                        ${speedrun.user.username}
+                                    </a>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                            <div class="row game-details">
+                                <div class="col-6 mini-box">${speedrunTimeConvert}</div>
+                                <div class="col-3 mini-box">${speedrun.dateSubmitted}</div>
+                                <div class="col-3 mini-box"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
 
         </div>
 
