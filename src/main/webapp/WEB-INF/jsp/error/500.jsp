@@ -4,7 +4,7 @@
 <jsp:include page="../include/header.jsp"/>
 
 <section class="bg-light1 pt-5 pb-5">
-  <div class="container">
+  <div class="container" style="min-height:760px">
     <div class="row">
       <h1 class="m-0">500 Error - Server Side Issue</h1>
     </div>

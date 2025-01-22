@@ -1,5 +1,7 @@
 package com.casestudy.webapp.controller;
 
+import com.casestudy.webapp.database.dao.CommentDAO;
+import com.casestudy.webapp.database.entity.Comment;
 import com.casestudy.webapp.database.entity.User;
 import com.casestudy.webapp.database.dao.UserDAO;
 import com.casestudy.webapp.database.entity.Game;
@@ -45,6 +47,9 @@ public class SpeedrunController {
     private SpeedrunDAO speedrunDao;
 
     @Autowired
+    private CommentDAO commentDao;
+
+    @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
     @GetMapping("/games/page/{gameAbbr}/createSpeedrun")
@@ -56,11 +61,10 @@ public class SpeedrunController {
         List<Game> titleGame = gameDao.findByAbbrIgnoreCase(gameAbbr);
         response.addObject("titleGameKey", titleGame);
 
-        if (titleGame.size() > 0) {
+        if (!titleGame.isEmpty()) {
             List<Speedrun> gameSpeedruns = speedrunDao.findSpeedrunsForGame(titleGame.get(0).getId());
             response.addObject("titleSpeedrunsKey", gameSpeedruns);
         }
-
 
         return response;
     }
@@ -110,6 +114,27 @@ public class SpeedrunController {
             System.out.println("saved speedrun");
 
             response.setViewName("redirect:/games/page/{gameAbbr}");
+        }
+        return response;
+    }
+
+    @GetMapping("/games/page/{gameAbbr}/speedrun/{speedrunId}")
+    public ModelAndView speedrunPage(@PathVariable String gameAbbr, @PathVariable Integer speedrunId) {
+        System.out.println(gameAbbr);
+        ModelAndView response = new ModelAndView("speedrun/speedrunDetails");
+        response.setViewName("speedrun/speedrunDetails");
+
+        List<Game> latestGames = gameDao.findLatestGames();
+        response.addObject("latestGameListKey", latestGames);
+        List<Game> titleGame = gameDao.findByAbbrIgnoreCase(gameAbbr);
+        response.addObject("titleGameKey", titleGame);
+
+        if (!titleGame.isEmpty()) {
+            List<Speedrun> speedrun = speedrunDao.findById(speedrunId);
+            response.addObject("speedrunKey", speedrun);
+
+            List<Comment> speedrunComments = commentDao.findBySpeedrunId(speedrunId);
+            response.addObject("commentsKey", speedrunComments);
         }
 
         return response;

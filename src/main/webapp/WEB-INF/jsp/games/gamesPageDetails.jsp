@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: m2arc
-  Date: 1/15/2025
-  Time: 11:30 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="../include/header.jsp"/>
@@ -58,13 +52,21 @@
                             "${Math.round(Math.floor(speedrun.speedrunTime / 3600))}h
                             ${Math.round(Math.floor(speedrun.speedrunTime / 60 % 60))}m
                             ${Math.round(Math.floor(speedrun.speedrunTime % 60))}s"/>
+
                     <div class="container-entry">
                         <div class="row">
                             <!-- Details -->
                             <div class="col-12">
                                 <div class="row game-details">
                                     <div class="col-1">${count}</div>
-                                    <div class="col-5">${speedrun.user.username}</div>
+                                    <c:forEach var="game" items="${titleGameKey}">
+                                        <div class="col-5">
+                                            <a href="/games/page/${game.abbr}/speedrun/${speedrun.id}">
+                                                    ${speedrun.user.username}
+                                            </a>
+                                        </div>
+                                    </c:forEach>
+
                                     <div class="col-3">${speedrunTimeConvert}</div>
                                     <div class="col-3">Submitted on ${speedrun.dateSubmitted}</div>
                                 </div>

@@ -1,5 +1,7 @@
 package com.casestudy.webapp.controller;
+import com.casestudy.webapp.database.dao.CommentDAO;
 import com.casestudy.webapp.database.dao.SpeedrunDAO;
+import com.casestudy.webapp.database.entity.Comment;
 import com.casestudy.webapp.database.entity.Game;
 import com.casestudy.webapp.database.dao.GameDAO;
 import com.casestudy.webapp.database.entity.Speedrun;
@@ -46,11 +48,11 @@ public class GamesController {
         List<Game> latestGames = gameDao.findAlphabetizedGames();
         response.addObject("latestGameListKey", latestGames);
 
-        if (titleGame.size() > 0) {
-            List<Speedrun> gameSpeedruns = titleGame.get(0).getSpeedruns();
+        if (!titleGame.isEmpty()) {
+            List<Speedrun> gameSpeedruns = speedrunDao.findSpeedrunsForGame(titleGame.get(0).getId());
             response.addObject("titleSpeedrunsKey", gameSpeedruns);
-        }
 
+        }
 
         return response;
     }
