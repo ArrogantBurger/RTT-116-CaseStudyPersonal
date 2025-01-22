@@ -11,8 +11,8 @@
 
 <div class="container page" id="games-page" style="align-items: flex-start">
     <div class="row game-gallery">
-        <div class="">
-            <h1>Main Games Page!</h1>
+        <div class="list-title">
+            <h1>Games List</h1>
         </div>
         <div class="row game-gallery-contents">
             <c:forEach var="game" items="${latestGameListKey}">

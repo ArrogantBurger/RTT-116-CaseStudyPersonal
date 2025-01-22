@@ -22,9 +22,6 @@ public class GamesController {
     @Autowired
     private SpeedrunDAO speedrunDao;
 
-    @Autowired
-    private SpeedrunDAO speedrunDAO;
-
     @GetMapping("/games")
     public ModelAndView gamesMain() {
         ModelAndView response = new ModelAndView("games/gamesPage");
@@ -45,6 +42,9 @@ public class GamesController {
 
         List<Game> titleGame = gameDao.findByAbbrIgnoreCase(gameAbbr);
         response.addObject("titleGameKey", titleGame);
+
+        List<Game> latestGames = gameDao.findAlphabetizedGames();
+        response.addObject("latestGameListKey", latestGames);
 
         if (titleGame.size() > 0) {
             List<Speedrun> gameSpeedruns = titleGame.get(0).getSpeedruns();

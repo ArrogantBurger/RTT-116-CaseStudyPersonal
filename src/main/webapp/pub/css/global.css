@@ -13,6 +13,10 @@ div {
     width: 16%
 }
 
+#app-main{
+
+}
+
 /* ===== Navbar (Header) and Footer ===== */
 .navbar {
     background-color: #04AA6D;
@@ -55,7 +59,6 @@ div {
 /* ===== Containers, Lists ===== */
 
 .container-content {
-
 }
 
 .container-list {
@@ -108,6 +111,19 @@ div {
 
 .game-details {
     font-size: small;
+    font-weight:normal;
+}
+
+.game-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.game-info img {
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* ===== Widgets ===== */
@@ -128,6 +144,12 @@ div {
     min-height: 800px;
     margin-top: 24px;
     margin-bottom: 24px;
+}
+
+.page .btn {
+    background-color: #04AA6D;
+    color: white;
+    width: 100%;
 }
 
 .authentication-page {
@@ -201,4 +223,10 @@ div {
 .game-card-footer {
     font-size: large;
     margin: 12px;
+}
+
+/* ===== Speedrun Pages =====*/
+
+#speedrun-button {
+    width: 300px;
 }

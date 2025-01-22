@@ -90,7 +90,8 @@ public class LoginController {
             System.out.println("User saved");
 
             UserRole userRole = new UserRole();
-            userRole.setUserId(user.getId());
+            userRole.setUser(user);
+            System.out.println(user.getUsername());
             userRole.setRoleName("USER");
 
             userRoleDao.save(userRole);
